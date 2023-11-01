@@ -5,44 +5,92 @@ class Database
 	protected $host = DB_HOST;
 	protected $user = DB_USER;
 	protected $pass = DB_PASS;
-	protected $service = DB_SERVICE;
+	protected $dbname = DB_NAME;
 
 	protected $dbh;
 	protected $stmt;
 
 	public function __construct()
 	{
+		$tsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+
+		$option = [
+			PDO::ATTR_PERSISTENT => true,
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		];
+
 		try {
-			$this->dbh = oci_connect($this->user, $this->pass, $this->host . '/' . $this->service);
-		} catch (\Throwable $e) {
-			$msg = oci_error();
+			$this->dbh = new PDO($tsn, $this->user, $this->pass, $option);
+		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
-
-		oci_set_client_info($this->dbh, 'Administrator');
 	}
 
 	public function query($query)
 	{
-		$this->stmt = oci_parse($this->dbh, $query);
+		$this->stmt = $this->dbh->prepare($query);
+	}
+
+	public function bind($param, $value, $type = null)
+	{
+		if (is_null($type)) {
+			switch (true) {
+				case is_int($value):
+					$type = PDO::PARAM_INT;
+					break;
+				case is_bool($value):
+					$type = PDO::PARAM_BOOL;
+					break;
+				case is_null($value):
+					$type = PDO::PARAM_NULL;
+					break;
+				default:
+					$type = PDO::PARAM_STR;
+			}
+		}
+
+		$this->stmt->bindValue($param, $value, $type);
+	}
+
+	public function execute()
+	{
+		$this->stmt->execute();
+	}
+
+	public function executeOracle($data)
+	{
+		$this->stmt->execute($data);
 	}
 
 	public function resultSet()
 	{
-		oci_execute($this->stmt);
-		oci_fetch_all($this->stmt, $res, 0, -1, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
-
-		return $res;
+		$this->execute();
+		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function __destruct()
+	public function single()
 	{
-		if ($this->stmt) {
-			oci_free_statement($this->stmt);
-		}
+		$this->execute();
+		return $this->stmt->fetch(PDO::FETCH_ASSOC);
+	}
 
-		if ($this->dbh) {
-			oci_close($this->dbh);
-		}
+	public function rowCount()
+	{
+		return $this->stmt->rowCount();
+	}
+
+	public function beginTransaction()
+	{
+		return $this->dbh->beginTransaction();
+	}
+
+	public function rollback()
+	{
+		return $this->dbh->rollBack();
+	}
+
+	public function commit()
+	{
+		return $this->dbh->commit();
 	}
 }

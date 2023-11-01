@@ -5,18 +5,18 @@
 </div>
 </div><!-- /.main-content -->
 
-<div class="footer">
+<!-- <div class="footer">
   <div class="footer-inner">
     <div class="footer-content text-center">
       <span class="bigger-120">
-        <span class="blue bolder">USTP X GCM | Verifikasi Data Perumahan</span>
+        <span class="blue bolder">USTP X GCM | Koperasi</span>
         &copy; <?= date('Y') ?>
       </span>
 
       &nbsp; &nbsp;
     </div>
   </div>
-</div>
+</div> -->
 
 </div>
 <script src="assets/js/jquery-2.1.4.min.js"></script>
@@ -27,9 +27,9 @@
 <script src="assets/js/moment.min.js"></script>
 <script src="assets/js/daterangepicker.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
-<script src="assets/js/html5-qrcode.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
 
-<script src="assets/js/homeqrscanner.js<?= '?' . time() ?>"></script>
+<script src="assets/js/koperasi-blockuser.js<?= '?' . time() ?>"></script>
 
 </body>
 
