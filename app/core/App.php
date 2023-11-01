@@ -11,7 +11,9 @@ class App
 	{
 
 		$url = $this->parseURL();
-		// var_dump($url);
+		if (!isset($_SESSION['user'])) {
+			$this->controller = 'AuthUser';
+		}
 
 		if (file_exists('app/controllers/' . $url[0] . '.php')) {
 			$this->controller = $url[0];

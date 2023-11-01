@@ -2,6 +2,15 @@
 
 class AuthUser extends Controller
 {
+
+    public function __construct()
+    {
+        if (isset($_SESSION['user'])) {
+            header('location: ' . $_SERVER['HTTP_SERVER']);
+            exit;
+        }
+    }
+
     public function index()
     {
         $this->view('templates/header');
@@ -22,8 +31,8 @@ class AuthUser extends Controller
 
         Flasher::setMessage('Failed', 'Username atau password salah!!!', 'danger');
         header('location: ' . BASEURL . '/authuser');
-        exit;
         session_destroy();
+        exit;
     }
 
     public function logout()
