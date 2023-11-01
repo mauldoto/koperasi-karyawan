@@ -21,17 +21,14 @@ class BlockUserModel
 
     public function saveData($data)
     {
-        $query = "INSERT INTO empblokir (empcode, status) 
-            VALUES(:empcode, :status)";
+        $query = "INSERT INTO empblokir (empcode) 
+            VALUES(:empcode)";
 
         // $data['inputdate'] = strtoupper(date('d-M-y'));
 
         $this->db->query($query);
 
-        $data['empcode'] = $data['anggota'];
-
         $this->db->bind('empcode', $data['anggota']);
-        $this->db->bind('status', $data['status']);
         // $this->db->bind('jawaban', $data['jawaban']);
         // $this->db->bind('inputdate', date('dmY'));
         // $this->db->bind('alasan', $data['alasan']);

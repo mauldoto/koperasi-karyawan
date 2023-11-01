@@ -26,14 +26,20 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="status">Status</label>
-                        <input type="text" class="form-control" id="status" name="status" placeholder="Input status">
-                    </div>
-                    <div class="form-group">
                         <label for=""></label>
                         <button class="col-xs-12 col-sm-12 btn btn-success" id="loadbtn">Submit</button>
                     </div>
                 </form>
+            </div>
+
+            <div class="text-center">
+                <?php
+                if (isset($_SESSION['blocked'])) {
+                    echo $_SESSION['blocked']['kode'] . ' - ' . $_SESSION['blocked']['nama'];
+                }
+
+                unset($_SESSION['blocked']);
+                ?>
             </div>
         </section>
 

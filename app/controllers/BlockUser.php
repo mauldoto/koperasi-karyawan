@@ -24,11 +24,15 @@ class BlockUser extends Controller
         echo json_encode($results);
     }
 
-    public function detail()
+    public function detail($param = null)
     {
         $nik = explode('=', $_SERVER['REQUEST_URI']);
-        $employee = $this->model('AnggotaModel')->getDetail($nik[1]);
-        $jawaban = $this->model('BlockUserModel')->getStatus($nik[1]);
+        $nikAnggota = $param ?? $nik[1];
+        $employee = $this->model('AnggotaModel')->getDetail($nikAnggota);
+        $jawaban = $this->model('BlockUserModel')->getStatus($nikAnggota);
+        if ($param) {
+            return $employee;
+        }
         echo json_encode(["anggota" => $employee, 'status' => $jawaban]);
     }
 
@@ -44,6 +48,7 @@ class BlockUser extends Controller
             exit;
         }
 
+        $_SESSION['blocked'] = $this->detail($_POST['anggota']);
         Flasher::setMessage('Successfully', 'Created', 'success');
         header('location: ' . BASEURL . '/blockuser');
         exit;
