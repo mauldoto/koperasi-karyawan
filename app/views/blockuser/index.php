@@ -2,7 +2,7 @@
 
 <div class="logout-btn text-right" style="margin-top: 5px;">
     <form action="<?= BASEURL; ?>/authuser/logout" method="post">
-        <button class="btn btn-sm btn-danger">Logout</button>
+        <button type="submit" class="btn btn-sm btn-danger">Logout</button>
     </form>
 </div>
 

@@ -5,10 +5,6 @@ class AuthUser extends Controller
 
     public function __construct()
     {
-        if (isset($_SESSION['user'])) {
-            header('location: ' . $_SERVER['HTTP_SERVER']);
-            exit;
-        }
     }
 
     public function index()
@@ -20,10 +16,15 @@ class AuthUser extends Controller
 
     public function login()
     {
-        session_start();
+        if (isset($_SESSION['user'])) {
+            header('location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
+        }
+
         $dataLogin = $_POST;
         $user = $this->model('AuthModel')->getUser($dataLogin);
         if ($user) {
+            session_start();
             $_SESSION['user'] = $user;
             header('location: ' . BASEURL . '/blockuser');
             exit;
@@ -31,13 +32,13 @@ class AuthUser extends Controller
 
         Flasher::setMessage('Failed', 'Username atau password salah!!!', 'danger');
         header('location: ' . BASEURL . '/authuser');
-        session_destroy();
         exit;
     }
 
     public function logout()
     {
         if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
             session_destroy();
         }
 
