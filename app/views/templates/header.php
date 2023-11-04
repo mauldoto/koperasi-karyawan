@@ -88,6 +88,26 @@
             font-size: 12px;
             color: grey;
         }
+
+        .img-oer {
+            width: 70%;
+
+        }
+
+        .oer {
+            margin-top: 0rem;
+        }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: 992px) {
+            .oer {
+                margin-top: 4rem;
+            }
+
+            .img-oer {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 

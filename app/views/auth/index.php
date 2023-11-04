@@ -10,24 +10,34 @@
 
         <section class="title-section">
             <div class="col-xs-12 col-md-6 col-md-offset-3 text-center mb-3">
-                <h4>Login</h4>
+                <img src=" <?= BASEURL; ?>/assets/images/logo/logo USTP.png" width="20%" alt="">
             </div>
-            <div class="col-xs-12 col-md-6 col-md-offset-3 mb-3">
-                <form action="<?= BASEURL; ?>/authuser/login" method="post">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control nik-select2" id="username" name="username" placeholder="Username">
-                        </input>
+            <div class="flexx">
+                <div class="col-xs-12 col-md-6 oer">
+                    <div class="text-center div-oer">
+                        <img class="img-oer" src=" <?= BASEURL; ?>/assets/images/logo/oer-cropped.png" alt="">
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <div class="text-center">
+                        <h4><label for="">Login</label></h4>
                     </div>
-                    <div class="form-group">
-                        <label for=""></label>
-                        <button class="col-xs-12 col-sm-12 btn btn-success" id="loginBtn">Login</button>
-                    </div>
-                </form>
+                    <form action="<?= BASEURL; ?>/authuser/login" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control nik-select2" id="username" name="username" placeholder="Username">
+                            </input>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                            <button class="col-xs-12 col-sm-12 btn btn-success" id="loginBtn">Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
 
