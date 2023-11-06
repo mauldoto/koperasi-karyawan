@@ -16,17 +16,7 @@
 
         <section class="title-section">
             <div class="col-xs-12 col-sm-12 text-center mb-3">
-                <table style="margin-left: auto; margin-right: auto;">
-                    <tr>
-                        <td style="border-right: solid; border-color: gainsboro; padding-right: 10px;">
-                            <img src=" <?= BASEURL; ?>/assets/images/logo/oer-cropped.png" width="200px" alt="">
-                        </td>
-                        <td>
-                            <img style="margin-left: 10px;" src=" <?= BASEURL; ?>/assets/images/logo/logo USTP.png" width="80px" alt="">
-                        </td>
-                    </tr>
-                </table>
-
+                <img src=" <?= BASEURL; ?>/assets/images/logo/oer-cropped.png" width="200px" alt="">
             </div>
             <div class="col-xs-12 col-sm-12 text-center mb-3">
                 <h4>Block User Koperasi</h4>

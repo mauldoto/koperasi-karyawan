@@ -3,7 +3,7 @@
 class App
 {
 
-	protected $controller = 'HomeQrScanner';
+	protected $controller = 'AuthUser';
 	protected $method = 'index';
 	protected $params = [];
 
