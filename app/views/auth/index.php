@@ -9,7 +9,7 @@
         </div>
 
         <section class="title-section">
-            <div class="col-xs-12 col-md-6 col-md-offset-3 text-center mb-3">
+            <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
                 <img src=" <?= BASEURL; ?>/assets/images/logo/logo USTP.png" width="20%" alt="">
             </div>
             <div class="flexx">
@@ -25,12 +25,12 @@
                     <form action="<?= BASEURL; ?>/authuser/login" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control nik-select2" id="username" name="username" placeholder="Username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                             </input>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="password">
                         </div>
                         <div class="form-group">
                             <label for=""></label>
