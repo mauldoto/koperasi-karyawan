@@ -10,12 +10,12 @@
 
         <section class="title-section">
             <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-                <img src=" <?= BASEURL; ?>/assets/images/logo/logo USTP.png" width="20%" alt="">
+                <img src="<?= BASEURL; ?>/assets/images/logo/logo USTP.png" width="20%" alt="">
             </div>
             <div class="flexx">
                 <div class="col-xs-12 col-md-6 oer">
                     <div class="text-center div-oer">
-                        <img class="img-oer" src=" <?= BASEURL; ?>/assets/images/logo/oer-cropped.png" alt="">
+                        <img class="img-oer" src="<?= BASEURL; ?>/assets/images/logo/oer-cropped.png" alt="">
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 mb-3">

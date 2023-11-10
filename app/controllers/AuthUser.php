@@ -26,12 +26,12 @@ class AuthUser extends Controller
         if ($user) {
             session_start();
             $_SESSION['user'] = $user;
-            header('location: ' . BASEURL . '/blockuser');
+            header('location: ' . BASEURL . '/BlockUser');
             exit;
         }
 
         Flasher::setMessage('Failed', 'Username atau password salah!!!', 'danger');
-        header('location: ' . BASEURL . '/authuser');
+        header('location: ' . BASEURL . '/AuthUser');
         exit;
     }
 
@@ -42,7 +42,7 @@ class AuthUser extends Controller
             session_destroy();
         }
 
-        header('location: ' . BASEURL . '/authuser');
+        header('location: ' . BASEURL . '/AuthUser');
         exit;
     }
 }

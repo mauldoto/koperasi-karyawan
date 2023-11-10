@@ -6,14 +6,14 @@ class BlockUser extends Controller
     {
         if (!isset($_SESSION['user'])) {
             Flasher::setMessage('Failed', 'Mohon login dulu!!!', 'danger');
-            header('location: ' . BASEURL . '/authuser');
+            header('location: ' . BASEURL . '/AuthUser');
             exit;
         }
     }
     public function index()
     {
         $this->view('templates/header');
-        $this->view('blockuser/index');
+        $this->view('BlockUser/index');
         $this->view('templates/footer');
     }
 
@@ -44,13 +44,13 @@ class BlockUser extends Controller
             $this->model('BlockUserModel')->saveData($_POST);
         } catch (\Throwable $th) {
             Flasher::setMessage('Failed,', 'Check your input', 'danger');
-            header('location: ' . BASEURL . '/blockuser');
+            header('location: ' . BASEURL . '/BlockUser');
             exit;
         }
 
         $_SESSION['blocked'] = $this->detail($_POST['anggota']);
         Flasher::setMessage('Successfully', 'Created', 'success');
-        header('location: ' . BASEURL . '/blockuser');
+        header('location: ' . BASEURL . '/BlockUser');
         exit;
     }
 
@@ -60,7 +60,7 @@ class BlockUser extends Controller
 
         if ($result) {
             Flasher::setMessage('Failed', 'NIK Sudah Terblokir!!!', 'danger');
-            header('location: ' . BASEURL . '/blockuser');
+            header('location: ' . BASEURL . '/BlockUser');
             exit;
         }
 

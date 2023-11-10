@@ -16,7 +16,7 @@
 
         <section class="title-section">
             <div class="col-xs-12 col-sm-12 text-center mb-3">
-                <img src=" <?= BASEURL; ?>/assets/images/logo/oer-cropped.png" width="200px" alt="">
+                <img src="<?= BASEURL; ?>/assets/images/logo/oer-cropped.png" width="200px" alt="">
             </div>
             <div class="col-xs-12 col-sm-12 text-center mb-3">
                 <h4>Block User Koperasi</h4>
