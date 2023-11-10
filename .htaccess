@@ -1,4 +1,3 @@
-DirectoryIndex is_aktif.html
 Options -Multiviews
 
 RewriteEngine On
