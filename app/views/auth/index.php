@@ -22,7 +22,7 @@
                     <div class="text-center">
                         <h4><label for="">Login</label></h4>
                     </div>
-                    <form action="<?= BASEURL; ?>/authuser/login" method="post">
+                    <form action="<?= BASEURL; ?>/AuthUser/login" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Username">

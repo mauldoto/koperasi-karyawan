@@ -11,7 +11,7 @@ window.onload = () => {
     placeholder: "Ketik Nik atau Nama Karyawan disini",
     minimumInputLength: 3,
     ajax: {
-      url: baseURL + "/blockuser/select2",
+      url: baseURL + "/BlockUser/select2",
       dataType: "json",
       delay: 250,
       data: function (params) {
@@ -37,7 +37,7 @@ window.onload = () => {
     const nik = $("[name='filterNik']").val();
     $(".detail").slideUp();
     $.ajax({
-      url: baseURL + "/blockuser/detail?nik=" + nik,
+      url: baseURL + "/BlockUser/detail?nik=" + nik,
       type: "get",
       success: function (results) {
         const data = JSON.parse(results);
