@@ -6,7 +6,7 @@ class blockuser extends Controller
     {
         if (!isset($_SESSION['user'])) {
             Flasher::setMessage('Failed', 'Mohon login dulu!!!', 'danger');
-            header('location: ' . BASEURL . '/AuthUser');
+            header('location: ' . BASEURL . '/authuser');
             exit;
         }
     }
@@ -29,7 +29,7 @@ class blockuser extends Controller
         $nik = explode('=', $_SERVER['REQUEST_URI']);
         $nikAnggota = $param ?? $nik[1];
         $employee = $this->model('AnggotaModel')->getDetail($nikAnggota);
-        $jawaban = $this->model('blockuserModel')->getStatus($nikAnggota);
+        $jawaban = $this->model('BlockUserModel')->getStatus($nikAnggota);
         if ($param) {
             return $employee;
         }
@@ -41,7 +41,7 @@ class blockuser extends Controller
         $this->checkEmpCode($_POST['anggota']);
 
         try {
-            $this->model('blockuserModel')->saveData($_POST);
+            $this->model('BlockUserModel')->saveData($_POST);
         } catch (\Throwable $th) {
             Flasher::setMessage('Failed,', 'Check your input', 'danger');
             header('location: ' . BASEURL . '/blockuser');
@@ -56,7 +56,7 @@ class blockuser extends Controller
 
     public function checkEmpCode($nik)
     {
-        $result = $this->model('blockuserModel')->getStatus($nik);
+        $result = $this->model('BlockUserModel')->getStatus($nik);
 
         if ($result) {
             Flasher::setMessage('Failed', 'NIK Sudah Terblokir!!!', 'danger');
