@@ -26,7 +26,7 @@ class authuser extends Controller
         if ($user) {
             session_start();
             $_SESSION['user'] = $user;
-            header('location: ' . BASEURL . '/BlockUser');
+            header('location: ' . BASEURL . '/blockuser');
             exit;
         }
 
