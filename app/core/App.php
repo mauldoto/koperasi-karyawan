@@ -3,7 +3,7 @@
 class App
 {
 
-	protected $controller = 'AuthUser';
+	protected $controller = 'authuser';
 	protected $method = 'index';
 	protected $params = [];
 
@@ -12,7 +12,7 @@ class App
 
 		$url = $this->parseURL();
 		if (!isset($_SESSION['user'])) {
-			$this->controller = 'AuthUser';
+			$this->controller = 'authuser';
 		}
 
 		if (file_exists('app/controllers/' . $url[0] . '.php')) {
