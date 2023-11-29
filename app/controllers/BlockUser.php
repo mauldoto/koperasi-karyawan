@@ -1,6 +1,6 @@
 <?php
 
-class BlockUser extends Controller
+class blockuser extends Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class BlockUser extends Controller
     public function index()
     {
         $this->view('templates/header');
-        $this->view('BlockUser/index');
+        $this->view('blockuser/index');
         $this->view('templates/footer');
     }
 
@@ -29,7 +29,7 @@ class BlockUser extends Controller
         $nik = explode('=', $_SERVER['REQUEST_URI']);
         $nikAnggota = $param ?? $nik[1];
         $employee = $this->model('AnggotaModel')->getDetail($nikAnggota);
-        $jawaban = $this->model('BlockUserModel')->getStatus($nikAnggota);
+        $jawaban = $this->model('blockuserModel')->getStatus($nikAnggota);
         if ($param) {
             return $employee;
         }
@@ -41,26 +41,26 @@ class BlockUser extends Controller
         $this->checkEmpCode($_POST['anggota']);
 
         try {
-            $this->model('BlockUserModel')->saveData($_POST);
+            $this->model('blockuserModel')->saveData($_POST);
         } catch (\Throwable $th) {
             Flasher::setMessage('Failed,', 'Check your input', 'danger');
-            header('location: ' . BASEURL . '/BlockUser');
+            header('location: ' . BASEURL . '/blockuser');
             exit;
         }
 
         $_SESSION['blocked'] = $this->detail($_POST['anggota']);
         Flasher::setMessage('Successfully', 'Created', 'success');
-        header('location: ' . BASEURL . '/BlockUser');
+        header('location: ' . BASEURL . '/blockuser');
         exit;
     }
 
     public function checkEmpCode($nik)
     {
-        $result = $this->model('BlockUserModel')->getStatus($nik);
+        $result = $this->model('blockuserModel')->getStatus($nik);
 
         if ($result) {
             Flasher::setMessage('Failed', 'NIK Sudah Terblokir!!!', 'danger');
-            header('location: ' . BASEURL . '/BlockUser');
+            header('location: ' . BASEURL . '/blockuser');
             exit;
         }
 

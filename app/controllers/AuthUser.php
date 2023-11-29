@@ -1,6 +1,6 @@
 <?php
 
-class AuthUser extends Controller
+class authuser extends Controller
 {
 
     public function __construct()
@@ -31,7 +31,7 @@ class AuthUser extends Controller
         }
 
         Flasher::setMessage('Failed', 'Username atau password salah!!!', 'danger');
-        header('location: ' . BASEURL . '/AuthUser');
+        header('location: ' . BASEURL . '/authuser');
         exit;
     }
 
@@ -42,7 +42,7 @@ class AuthUser extends Controller
             session_destroy();
         }
 
-        header('location: ' . BASEURL . '/AuthUser');
+        header('location: ' . BASEURL . '/authuser');
         exit;
     }
 }
