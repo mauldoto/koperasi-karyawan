@@ -11,7 +11,7 @@ window.onload = () => {
     placeholder: "Ketik Nik atau Nama Karyawan disini",
     minimumInputLength: 3,
     ajax: {
-      url: baseURL + "/BlockUser/select2",
+      url: baseURL + "/blockuser/select2",
       dataType: "json",
       delay: 250,
       data: function (params) {
