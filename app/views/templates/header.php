@@ -20,6 +20,24 @@
     <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
     <style>
         html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-container {
+            flex: 1 0 auto;
+        }
+
+        .footer {
+            flex-shrink: 0;
+        }
+
+        html,
         body,
         .main-container,
         .page-content,
@@ -43,26 +61,15 @@
         }
 
         .footer {
-            padding-top: 75px;
-            height: 0;
-            width: 0;
+            margin-top: 3rem;
         }
 
         .footer .footer-inner {
             text-align: center;
-            position: absolute;
-            z-index: auto;
-            left: 0;
-            right: 0;
-            bottom: 0;
         }
 
         .footer .footer-inner .footer-content {
             background-color: white !important;
-            left: 0px !important;
-            right: 0px !important;
-            position: absolute;
-            bottom: 4px;
             padding: 8px;
             line-height: 36px;
             border-top: 3px double #E5E5E5;
@@ -113,7 +120,7 @@
 
 <body class="">
 
-    <div class="container" id="main-container">
+    <div class="container main-container" id="main-container">
 
         <div class="main-content">
             <div class="main-content-inner">

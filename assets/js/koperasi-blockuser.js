@@ -37,7 +37,7 @@ window.onload = () => {
     const nik = $("[name='filterNik']").val();
     $(".detail").slideUp();
     $.ajax({
-      url: baseURL + "/BlockUser/detail?nik=" + nik,
+      url: baseURL + "/blockuser/detail?nik=" + nik,
       type: "get",
       success: function (results) {
         const data = JSON.parse(results);

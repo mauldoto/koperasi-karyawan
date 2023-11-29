@@ -5,18 +5,18 @@
 </div>
 </div><!-- /.main-content -->
 
-<!-- <div class="footer">
+<div class="footer">
   <div class="footer-inner">
     <div class="footer-content text-center">
       <span class="bigger-120">
-        <span class="blue bolder">USTP X GCM | Koperasi</span>
+        <span class="blue bolder">USTP X GCM | Block User Koperasi</span>
         &copy; <?= date('Y') ?>
       </span>
 
       &nbsp; &nbsp;
     </div>
   </div>
-</div> -->
+</div>
 
 </div>
 <script src="assets/js/jquery-2.1.4.min.js"></script>
